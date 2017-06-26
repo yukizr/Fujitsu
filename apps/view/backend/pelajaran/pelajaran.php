@@ -132,7 +132,7 @@
 								<?php
 								echo '<td><center>';
 								?>
-									<a id="aedit" href="<?php echo base_url("admin/pelajaran/editaction/".$h->id); ?>"><i class="fi-pencil"></i></a>
+									<a id="aedit" href="<?php echo base_url("admin/pelajaran/edit/".$h->id); ?>"><i class="fi-pencil"></i></a>
 									<a id="adelete" href="<?php echo base_url("admin/pelajaran/delete/".$h->id); ?>"><i class="fi-x"></i></a>
 								<?php
 								echo '</center></td>';

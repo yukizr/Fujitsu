@@ -28,6 +28,154 @@
 
   <script src="<?php echo base_url('assets/js/vendor/modernizr.js'); ?>"></script>
 
+  <script type="text/javascript" src="<?php echo base_url("assets/js/tinymce/tinymce.min.js"); ?>"></script>
+  <script type="text/javascript">
+  tinymce.init({
+selector: "textarea",
+theme: 'modern',
+  plugins: [
+    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    'insertdatetime media nonbreaking save table contextmenu directionality',
+    'emoticons template paste textcolor colorpicker textpattern imagetools codesample toc help'
+  ],
+toolbar1: 'mybutton, undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+ toolbar2: 'print preview media | forecolor backcolor emoticons | codesample help',
+ image_advtab: true,
+height:400,
+setup: function(editor) {
+    editor.addButton('mybutton', {
+        text:"IMAGE",
+        icon: false,
+        onclick: function(e) {
+            console.log($(e.target));
+            if($(e.target).prop("tagName") == 'BUTTON'){
+console.log($(e.target).parent().parent().find('input').attr('id'));                    if($(e.target).parent().parent().find('input').attr('id') != 'tinymce-uploader') {
+            $(e.target).parent().parent().append('<input id="tinymce-uploader" type="file" name="pic" accept="image/*" style="display:none">');
+                }
+            $('#tinymce-uploader').trigger('click');
+            $('#tinymce-uploader').change(function(){
+             var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('tinymce-uploader');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.src = fr.result;
+             editor.insertContent('<img src="'+img.src+'"/>');
+
+        }
+
+            });
+
+        }
+                     if($(e.target).prop("tagName") == 'DIV'){
+                         if($(e.target).parent().find('input').attr('id') != 'tinymce-uploader') {
+console.log($(e.target).parent().find('input').attr('id'));
+            $(e.target).parent().append('<input id="tinymce-uploader" type="file" name="pic" accept="image/*" style="display:none">');
+                         }
+            $('#tinymce-uploader').trigger('click');
+            $('#tinymce-uploader').change(function(){
+             var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('tinymce-uploader');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.src = fr.result;
+             editor.insertContent('<img src="'+img.src+'"/>');
+
+        }
+
+            });
+
+        }
+                    if($(e.target).prop("tagName") == 'I'){
+console.log($(e.target).parent().parent().parent().find('input').attr('id')); if($(e.target).parent().parent().parent().find('input').attr('id') != 'tinymce-uploader') {               $(e.target).parent().parent().parent().append('<input id="tinymce-uploader" type="file" name="pic" accept="image/*" style="display:none">');
+                                                                                       }
+            $('#tinymce-uploader').trigger('click');
+            $('#tinymce-uploader').change(function(){
+             var input, file, fr, img;
+
+        if (typeof window.FileReader !== 'function') {
+            write("The file API isn't supported on this browser yet.");
+            return;
+        }
+
+        input = document.getElementById('tinymce-uploader');
+        if (!input) {
+            write("Um, couldn't find the imgfile element.");
+        }
+        else if (!input.files) {
+            write("This browser doesn't seem to support the `files` property of file inputs.");
+        }
+        else if (!input.files[0]) {
+            write("Please select a file before clicking 'Load'");
+        }
+        else {
+            file = input.files[0];
+            fr = new FileReader();
+            fr.onload = createImage;
+            fr.readAsDataURL(file);
+        }
+
+        function createImage() {
+            img = new Image();
+            img.src = fr.result;
+             editor.insertContent('<img src="'+img.src+'"/>');
+
+        }
+
+            });
+
+        }
+
+        }
+    });
+}});
+
+	</script>
+
 </head>
 
 <body>

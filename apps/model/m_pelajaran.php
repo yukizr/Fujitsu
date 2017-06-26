@@ -100,10 +100,23 @@ class M_Pelajaran extends SENE_Model {
   }
 
   public function update($id,$mapel,$judul,$gambar,$dialog_1,$dialog_2){
-    $sql="UPDATE `t_pelajaran` SET `mapel` = ".$this->db->esc($mapel).",`judul` = ".$this->db->esc($judul).",`gambar` = ".$this->db->esc($gambar).",`dialog_1` = ".$this->db->esc($dialog_1).",`dialog_2` = ".$this->db->esc($dialog_2)." WHERE `id` = ".$this->db->esc($id)."";
-    // var_dump($sql);
-    // die("ubah");
-    return $this->exec($sql);
+		$sql 					= " SELECT `gambar` FROM `t_pelajaran` WHERE `id` = ".$this->db->esc($id)." ";
+		$data 				= $this->select($sql);
+		$gambar_ganti = $data[0]->gambar;
+		$path 				= "assets/img/pelajaran/".$gambar_ganti;
+
+		$sql1="UPDATE `t_pelajaran` SET `mapel` = ".$this->db->esc($mapel).",`judul` = ".$this->db->esc($judul).",`gambar` = ".$this->db->esc($gambar).",`dialog_1` = ".$this->db->esc($dialog_1).",`dialog_2` = ".$this->db->esc($dialog_2)." WHERE `id` = ".$this->db->esc($id)."";
+
+		$sql2=" UPDATE `t_pelajaran` SET `mapel` = ".$this->db->esc($mapel).", `judul` = ".$this->db->esc($judul)." , `dialog_1` = ".$this->db->esc($dialog_1).", `dialog_2` = ".$this->db->esc($dialog_2)." WHERE `id` = ".$this->db->esc($id)." ";
+
+		if (empty($gambar)) {
+			return $this->exec($sql2);
+		} else {
+			//jika gambar diubah
+			$unlink = unlink($path);
+			return $this->exec($sql1);
+		}
+
   }
 
   public function del($id){

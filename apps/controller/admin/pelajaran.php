@@ -47,12 +47,7 @@
 				$this->view("backend/__footer",$data);
 			}
 			else{
-        $data['sess'] = $sess;
-        $this->view("frontend/pelajaran/__header",$data);
-        $this->view("frontend/pelajaran/__nav",$data);
-        $this->view("frontend/pelajaran/pelajaran",$data);
-        $this->view("frontend/pelajaran/__bottom",$data);
-        $this->view("frontend/pelajaran/__footer",$data);
+      	redir(base_url("admin/login"));
 			}
 		}
 
@@ -89,34 +84,6 @@
 			   else{}
 		}
 
-		public function editaction($id){
-			//var_dump($id);
-			//die('editaction');
-			if($submit = $this->input->post('submit')){
-				$data['notif'] = "";
-				if (!empty($submit)) {
-					$id = $id;
-          $mapel = $this->input->post('mapel');
-    			$judul = $this->input->post('judul');
-    			$gambar = $this->input->post('gambar');
-    			$dialog_1 = $this->input->post('dialog_1');
-    			$dialog_2 = $this->input->post('dialog_2');
-
-					$res = $this->mt_kumpulkupon->update($id,$mapel,$judul,$gambar,$dialog_1,$dialog_2);
-
-					if ($res) {
-						$data['warn'] = "berhasil";
-					} else {
-						$data['warn'] = "gagal";
-					}
-				}
-				header("location:".base_url("admin/pelajaran/"));
-			}
-			else{
-				redir(base_url("login"));
-				}
-			}
-
 		public function edit($id){
 			$sess = $this->getKey();
 			if(!is_array($sess)){
@@ -126,22 +93,46 @@
 			if(isset($sess['admin'])){
 				$data['datalist'] = $this->m_pelajaran->getById($id);
 				$data['datalist'] = $data['datalist'][0];
-
-
 				$data['id']=$id;
 				if(isset($data['datalist'])){
 					$data['sess'] = $sess;
-					$this->view("__header",$data);
-					$this->view("__nav",$data);
+					$this->view("backend/__header",$data);
+					$this->view("backend/__nav",$data);
 					$this->view("backend/pelajaran/edit",$data);
-					$this->view("backend/pelajaran/__bottom");
-					$this->view("__footer");
+					$this->view("backend/pelajaran/edit/bottom");
+					$this->view("backend/__footer");
 				}
 			}
 			else{
 			redir(base_url("admin/login"));
 			}
 		}
+
+		public function alter($id){
+			//var_dump($id);
+			//die('editaction');
+			$url = base_url("assets/img/pelajaran/");
+			if($submit = $this->input->post('submit')){
+			$data['warn'] = "";
+				if (!empty($submit)) {
+					$this->lib("SENE_Uploader","lib");
+					$id = $id;
+          $mapel = $this->input->post('mapel');
+    			$judul = $this->input->post('judul');
+					$gambar = $this->SENE_Uploader->upload($this->img_pelajaran,"gambar",$res);
+    			$dialog_1 = $this->input->post('dialog_1');
+    			$dialog_2 = $this->input->post('dialog_2');
+					$res = $this->m_pelajaran->update($id,$mapel,$judul,$gambar,$dialog_1,$dialog_2);
+					if ($res) {
+						$data['warn'] = "berhasil";
+					} else {
+						$data['warn'] = "gagal";
+					}
+				}
+				header("location:".base_url("admin/pelajaran/"));
+			}
+			else{redir(base_url("admin/login"));}
+			}
 
 		public function delete($id){
       // $del_img = unlink("gambar/$_GET[namafile]");

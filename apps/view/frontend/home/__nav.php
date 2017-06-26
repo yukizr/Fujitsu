@@ -13,7 +13,7 @@
 				<li><a href="<?php echo base_url(); ?>" class="ttfos"><i class="fi-home"></i> Home</a></li>
 				<li><a href="<?php echo base_url(); ?>" class="ttfos"><i class="fi-power"></i> Logout</a></li>
 				<?php }else{ ?>
-				<!-- <li><a href="<?php echo base_url(); ?>" class="ttfos">Login</a></li> -->
+				<li><a href="<?php echo base_url("login"); ?>" class="ttfos">Login</a></li>
 				<?php } ?>
 
       </ul>
