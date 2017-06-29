@@ -23,7 +23,7 @@
       <label>Gambar</label><input type=file name="gambar" size=25 ><br />
 			<label>Dialog 1</label><textarea id="dialog_1" name="dialog_1" required="required" style="height:100%;"><?php echo $datalist->dialog_1; ?></textarea><br />
 			<label>Dialog 2</label><textarea id="dialog_2" name="dialog_2" required="required" style="height:100%;"><?php echo $datalist->dialog_2; ?></textarea><br />
-      <input name="submit" type="submit" class="button expand" value="Input"></input>
+      <input name="submit" type="submit" class="button expand" value="Update"></input>
     </form>
   </div>
   <div class="small-12 medium-1 large-1 columns">&nbsp;</div>

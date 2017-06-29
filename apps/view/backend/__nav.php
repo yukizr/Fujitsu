@@ -2,7 +2,7 @@
   <nav class="top-bar" data-topbar>
     <ul class="title-area">
       <li class="name">
-				<h1 class="h1titletopbar">Admin Panel | Fujitsu Guide Japanese</h1>
+				<h1 class="h1titletopbar">Admin</h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
     </ul>

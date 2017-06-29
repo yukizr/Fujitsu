@@ -16,20 +16,20 @@ class Home extends SENE_Controller{
     $data = array();
     $data['sess'] = $sess;
 		if(isset($sess['user']->id)){
-      $this->view("frontend/home/__header",$data);
-			$this->view("frontend/home/__nav",$data);
+      $this->view("frontend/__header",$data);
+			$this->view("frontend/__nav",$data);
 			$this->view("frontend/home/home",$data);
-			$this->view("frontend/home/__bottom",$data);
-			$this->view("frontend/home/__footer",$data);
+			$this->view("frontend/__bottom",$data);
+			$this->view("frontend/__footer",$data);
 		}else{
         //buathalaman login & signup popup
         //jadi ini untuk sementara dulu
         // redir(base_url("admin/login"));
-        $this->view("frontend/home/__header",$data);
-  			$this->view("frontend/home/__nav",$data);
+        $this->view("frontend/__header",$data);
+  			$this->view("frontend/__nav",$data);
   			$this->view("frontend/home/home",$data);
-  			$this->view("frontend/home/__bottom",$data);
-  			$this->view("frontend/home/__footer",$data);
+  			$this->view("frontend/__bottom",$data);
+  			$this->view("frontend/__footer",$data);
 		}
 	}
 

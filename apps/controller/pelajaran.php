@@ -1,5 +1,5 @@
 <?php
-class Home extends SENE_Controller{
+class Pelajaran extends SENE_Controller{
     var $status = 0;
 
 	public function __construct(){
@@ -9,26 +9,24 @@ class Home extends SENE_Controller{
 
 	public function index(){
 		$sess = $this->getKey();
-    // if(!is_array($sess)){
-		// 	$sess = array();
-		// }
     $data = array();
     $data['sess'] = $sess;
+    $data['pelajaran'] = $this->m_pelajaran->getAll();
 		if(isset($sess['user']->id)){
-      $this->view("frontend/pelajaran/__header",$data);
-			$this->view("frontend/pelajaran/__nav",$data);
+      $this->view("frontend/__header",$data);
+			$this->view("frontend/__nav",$data);
 			$this->view("frontend/pelajaran/pelajaran",$data);
-			$this->view("frontend/pelajaran/__bottom",$data);
-			$this->view("frontend/pelajaran/__footer",$data);
+			$this->view("frontend/__bottom",$data);
+			$this->view("frontend/__footer",$data);
 		}else{
         //buathalaman login & signup popup
         //jadi ini untuk sementara dulu
         // redir(base_url("admin/login"));
-        $this->view("frontend/pelajaran/__header",$data);
-  			$this->view("frontend/pelajaran/__nav",$data);
+        $this->view("frontend/__header",$data);
+  			$this->view("frontend/__nav",$data);
   			$this->view("frontend/pelajaran/pelajaran",$data);
-  			$this->view("frontend/pelajaran/__bottom",$data);
-  			$this->view("frontend/pelajaran/__footer",$data);
+  			$this->view("frontend/__bottom",$data);
+  			$this->view("frontend/__footer",$data);
 		}
 	}
 
