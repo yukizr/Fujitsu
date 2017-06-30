@@ -1,5 +1,5 @@
 <?php
-class M_Pengguna extends SENE_Model{
+class M_Admin extends SENE_Model{
 	public function __construct(){
 		parent::__construct();
 	}
@@ -30,8 +30,8 @@ class M_Pengguna extends SENE_Model{
     $sql="DELETE FROM `t_admin` WHERE `id` = ".$this->db->esc($id)."";
     return $this->exec($sql);
   }
-	public function auth($email,$pass){
-    $sql="SELECT `id`,`email`,`password`,`active`,`level` FROM `t_pengguna` WHERE `email` = ".$this->db->esc($email)." AND `password` = PASSWORD(".$this->db->esc($pass)."); ";
+	public function auth($username,$password){
+    $sql="SELECT `username`,`email`,`password`,`level` FROM `t_admin` WHERE (lower(`username`) = LOWER(".$this->db->esc($username).") OR `email` = ".$this->db->esc($username).") AND `password` = PASSWORD(".$this->db->esc($password)."); ";
 		// die($sql);
     return $this->select($sql);
   }

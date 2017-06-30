@@ -8,11 +8,11 @@ class Logout extends SENE_Controller{
 	}
 	public function index(){
 		$sess = $this->getKey();
-		if(isset($sess['admin'])){
-			$sess['admin'] = null;
+		if(isset($sess['user'])){
+			$sess['user'] = null;
 			$this->setKey($sess);
 		}
-		redir("login");
+		redir("home");
 	}
 
 	private function __out($data){

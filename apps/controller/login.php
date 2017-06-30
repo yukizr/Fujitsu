@@ -5,30 +5,40 @@ class Login extends SENE_Controller{
 	public function __construct(){
     parent::__construct();
 		$this->lib("SENE_JSON_Engine","lib");
+    $this->load("m_pengguna");
 	}
-	public function index(){
+  public function index(){
 		$sess = $this->getKey();
-		$data = array();
+    $data = array();
 		$data['sess'] = $sess;
-		if(!is_array($sess)){
-			$sess = array();
-		}
-		if(isset($sess['user']->id)){
-      $this->view("frontend/home/__header",$data);
-			$this->view("frontend/home/__nav",$data);
-			$this->view("frontend/home/home",$data);
-			$this->view("frontend/home/__bottom",$data);
-			$this->view("frontend/home/__footer",$data);
-		}else{
-      //buathalaman login & signup popup
-      //jadi ini untuk sementara dulu
-      // redir(base_url("login"));
-      $this->view("frontend/home/__header",$data);
-			$this->view("frontend/home/__nav",$data);
-			$this->view("frontend/home/home",$data);
-			$this->view("frontend/home/__bottom",$data);
-			$this->view("frontend/home/__footer",$data);
-		}
+    if (isset($sess['user'])) {
+      redir(base_url(""));
+    } else {
+      if ($this->input->post("submit")) {
+        $email = $this->input->post("email");
+    		$password = $this->input->post("password");
+    		$res = $this->m_pengguna->auth($email,$password);
+    		if(count($res)==1){
+    			redir(base_url("home"));
+          $sess = array();
+          $sess['user'] = $res[0];
+    			$this->setKey($sess);
+    		}else{
+    			$data['warn'] = 'Email atau Password salah';
+    			$this->view("frontend/__header",$data);
+    			$this->view("frontend/login/__nav",$data);
+    			$this->view("frontend/login/login",$data);
+    			$this->view("frontend/__bottom",$data);
+    			$this->view("frontend/__footer",$data);
+    		}
+      } else {
+        $this->view("frontend/__header",$data);
+        $this->view("frontend/login/__nav",$data);
+        $this->view("frontend/login/login",$data);
+        $this->view("frontend/__bottom",$data);
+        $this->view("frontend/__footer",$data);
+      }
+    }
 	}
 
 	private function __out($data){

@@ -10,10 +10,28 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2017-06-29 13:23:25
+Date: 2017-06-30 17:34:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for t_admin
+-- ----------------------------
+DROP TABLE IF EXISTS `t_admin`;
+CREATE TABLE `t_admin` (
+  `username` varchar(30) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `level` enum('admin','guru') NOT NULL DEFAULT 'guru',
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of t_admin
+-- ----------------------------
+INSERT INTO `t_admin` VALUES ('admin', 'ikuy.rz@gmail.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', 'admin');
+INSERT INTO `t_admin` VALUES ('dudi', 'dudi.haryadi@gmail.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', 'guru');
 
 -- ----------------------------
 -- Table structure for t_pelajaran
@@ -44,7 +62,7 @@ CREATE TABLE `t_pengguna` (
   `email` varchar(255) NOT NULL,
   `password` varchar(78) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
-  `level` enum('admin','murid') NOT NULL DEFAULT 'murid',
+  `level` enum('admin','user') NOT NULL DEFAULT 'user',
   `name_first` varchar(255) NOT NULL,
   `name_last` varchar(255) DEFAULT NULL,
   `class` enum('11 RPL 2','11 RPL 1','11 AK 3','11 AK 2','11 AK 1') DEFAULT NULL,
@@ -55,6 +73,4 @@ CREATE TABLE `t_pengguna` (
 -- ----------------------------
 -- Records of t_pengguna
 -- ----------------------------
-INSERT INTO `t_pengguna` VALUES ('1', 'ikuy.rz@gmail.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '1', 'admin', 'Yuki', 'Zain Rohman', '');
-INSERT INTO `t_pengguna` VALUES ('2', 'dudi.haryadi@gmail.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '1', 'admin', 'Dudi', 'Haryadi', '');
-INSERT INTO `t_pengguna` VALUES ('3', 'alya@rohman.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '1', 'murid', 'Alya', 'Rohman', '11 AK 1');
+INSERT INTO `t_pengguna` VALUES ('3', 'alya@rohman.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '1', 'user', 'Alya', 'Rohman', '11 AK 1');

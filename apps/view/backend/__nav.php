@@ -1,10 +1,11 @@
-<div class="contain-to-grid">
-  <nav class="top-bar" data-topbar>
+<div class="fixed">
+  <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
-				<h1 class="h1titletopbar">Admin</h1>
+        <?php $logo = "logo.png"; ?>
+        <a href="<?php echo base_url("home"); ?>"><img style="height:40px;margin:2px;" src="<?php echo base_url("assets/img/").$logo ?>" alt="Fujitsu Guide to Japanese" /></a>
       </li>
-      <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      <li class="toggle-topbar menu-icon"><a href="#"></a></li>
     </ul>
 
     <section class="top-bar-section">
@@ -34,4 +35,4 @@
 </div>
 
 <!--//start of container//-->
-<div class="container">
+<div class="container" style="padding-top:2.9em;">

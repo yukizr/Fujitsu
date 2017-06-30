@@ -8,7 +8,7 @@
 
 			<!--//content//-->
 
-      <div class=" small-12 medium-12 large-12">
+      <div class="small-12 medium-12 large-12 columns">
         <?php if (is_array($pelajaran)) {
           foreach($pelajaran as $h){
          ?>

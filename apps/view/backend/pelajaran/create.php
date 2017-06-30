@@ -5,16 +5,17 @@
 		<h2 class="ttfos"><small>Tambah</small> Mata Pelajaran</h2>
 	</div>
 	<div class="large-6 columns left">
+		<br>
 		<div class="right ttfos">
 			<ul class="stack-for-small  secondary button-group right">
 				<li><a href="<?php echo base_url("admin/pelajaran/"); ?>" class="button secondary tiny">Kembali</a></li>
-			</div>
+		</div>
 	</div>
+	<hr>
 </div>
-<hr>
+
 <div class="row">
-  <div class="small-12 medium-1 large-1 columns">&nbsp;</div>
-  <div class="small-12 medium-11 large-11 columns">
+  <div class="small-12 medium-12 large-12 columns">
     <!-- <h2>Tambah Grup Jenis</h2> -->
 
     <form id="fpelajaran" name="fpelajaran" action="<?php echo base_url("admin/pelajaran/input"); ?>"  method="post" enctype="multipart/form-data">
@@ -26,7 +27,6 @@
       <input name="submit" type="submit" class="button expand" value="Input"></input>
     </form>
   </div>
-  <div class="small-12 medium-1 large-1 columns">&nbsp;</div>
 </div>
 <div class="row"><div class="large-12 columns">&nbsp;</div></div>
 <!--//contain row after container//-->

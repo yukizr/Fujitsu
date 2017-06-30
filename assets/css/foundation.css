@@ -1109,7 +1109,7 @@ meta.foundation-mq-topbar {
   width: 100%;
   background: #333333; }
   .contain-to-grid .top-bar {
-    margin-bottom: 0; }
+    margin-bottom: 0;  }
 
 .fixed {
   width: 100%;
@@ -1134,7 +1134,9 @@ meta.foundation-mq-topbar {
   overflow: hidden;
   height: 45px;
   line-height: 45px;
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
   background: #e4002b ;
   margin-bottom: 0; }
   .top-bar ul {
