@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2017-06-30 17:34:16
+Date: 2017-07-16 23:41:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -61,16 +61,18 @@ CREATE TABLE `t_pengguna` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) NOT NULL,
   `password` varchar(78) NOT NULL,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
-  `level` enum('admin','user') NOT NULL DEFAULT 'user',
   `name_first` varchar(255) NOT NULL,
   `name_last` varchar(255) DEFAULT NULL,
   `class` enum('11 RPL 2','11 RPL 1','11 AK 3','11 AK 2','11 AK 1') DEFAULT NULL,
+  `active` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of t_pengguna
 -- ----------------------------
-INSERT INTO `t_pengguna` VALUES ('3', 'alya@rohman.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '1', 'user', 'Alya', 'Rohman', '11 AK 1');
+INSERT INTO `t_pengguna` VALUES ('3', 'alya@rohman.com', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', 'Alya', 'Rohman', '11 AK 1', '1');
+INSERT INTO `t_pengguna` VALUES ('5', 'me@yukizr.com', '*6F5E4440ABEC8C79AAA3A892A89030F71AAD74DF', 'Yuki', 'ZR', '11 RPL 1', '1');
+INSERT INTO `t_pengguna` VALUES ('6', 'johan@yukizr.com', '*8E34D0E300D9D74323B3CA99A30D9C38851D36E8', 'Johan', 'Rohman', '11 AK 1', '1');
+INSERT INTO `t_pengguna` VALUES ('7', 'dadang@gmail.com', '*DC6799ABE9BF80D28522CFFF429BD449E5966270', 'dadang', '', '11 AK 2', '1');

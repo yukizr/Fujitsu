@@ -8,3 +8,7 @@ body {
   background: #333333;
   padding: 5px 0 5px 0;
 }
+
+.hidden {
+  display: none;
+}

@@ -1,4 +1,4 @@
-<div class="contain-to-grid row">
+<div class="">
     <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">

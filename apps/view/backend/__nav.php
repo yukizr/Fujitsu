@@ -1,4 +1,4 @@
-<div class="fixed">
+<div class="">
   <nav class="top-bar" data-topbar role="navigation">
     <ul class="title-area">
       <li class="name">
@@ -23,7 +23,7 @@
 				</li>-->
 				<li><a href="<?php echo base_url("admin/logout"); ?>" class="ttfos"><i class="fi-power"></i> Keluar</a></li>
 				<?php }else{ ?>
-				<!-- <li><a href="<?php echo base_url("login"); ?>" class="ttfos">Login</a></li> -->
+				<li><a href="<?php echo base_url("login"); ?>" class="ttfos">Login</a></li>
 				<?php } ?>
 
       </ul>
