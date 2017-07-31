@@ -8,10 +8,10 @@
 	<div class="large-12 columns">
 		<?php if($res=="berhasil"): ?>
 		<div data-alert class="alert-box success radius">
-			Pendaftaran telah berhasil, silakan lanjutkan untuk masuk.
+			Pendaftaran telah berhasil, silahkan cek email untuk verifikasi akun.
 			<a href="#" class="close">&times;</a>
 		</div>
-		<a href="<?php echo base_url("login"); ?>"><input type="submit" name="submit" value="Masuk" class="button expand" /></a>
+		<!-- <a href="<?php echo base_url("login"); ?>"><input type="submit" name="submit" value="Masuk" class="button expand" /></a> -->
 	</div>
 	<div class="large-12 columns">
 		<br />

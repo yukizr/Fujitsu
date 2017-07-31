@@ -14,7 +14,7 @@
       			<a href="#" class="close">&times;</a>
       		</div>
       		<?php endif; ?>
-						<form action="<?php echo base_url("login"); ?>" method="post">
+						<form action="<?php echo base_url("login"); ?>" method="post" enctype="multipart/form-data" data-abide>
             <div class="row">
       				<div class="large-12 columns">
       					<label for="i_username">Email</label>
@@ -22,7 +22,8 @@
       			</div>
             <div class="row">
       				<div class="large-12 columns">
-    							<input type="text" name="email" id="i_username" class="input" placeholder="email" required="required" />
+    							<input type="email" name="email" id="i_username" class="input" pattern="email" placeholder="email" required="required" />
+                  <small class="error">Email tidak valid</small>
       				</div>
       			</div>
             <div class="row">
@@ -39,7 +40,7 @@
       				<div class="large-12 columns">
                 <input type="submit" name="submit" value="Masuk" class="button expand" />
                 <hr>
-                <p style="text-align:center;"><a href="<?php echo base_url("forgot"); ?>">Lupa Password</a></p>
+                <p style="text-align:center;"><a href="<?php echo base_url("forget"); ?>">Lupa Password</a></p>
                 <a href="<?php echo base_url("signup"); ?>" class="button secondary expand">Daftar</a>
       				</div>
       			</div>
